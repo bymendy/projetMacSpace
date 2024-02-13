@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+<body>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <h1>Contact</h1>
+
+    <div style="color : red" th:text="${error}"></div>
+
+    <form action="/contact" method="post" th:object="${contact}">
+        <input type="text" th:field="*{nom}" placeholder="Votre Nom"><br>
+        <input type="text" th:field="*{prenom}" placeholder="Votre Prenom"><br>
+        <input type="text" th:field="*{email}" placeholder="Votre Email"><br>
+        <textarea  th:field="*{message}" placeholder="Votre Message"></textarea><br>
+        <button type ="submit">Envoyer</button>
+    </form>
+
+</body>
+</html>
