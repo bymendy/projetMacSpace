@@ -19,7 +19,7 @@ public class DataSourceManager {
         CSVWriter writer = new CSVWriter(new FileWriter(fileName, true));
 
         //Create record
-        String[] record = "2,Rahul,Vaidya,India,35".split(",");
+        String[] record = "18 Boulevard de la Paix, Cergy".split(",");
 
         //Write the record to file
         writer.writeNext(contact.getData(),false);

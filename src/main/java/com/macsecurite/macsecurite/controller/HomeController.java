@@ -9,8 +9,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+    // VUE :
+
+    // La vue représente l'interface utilisateur dans une application logicielle.
+    // Elle affiche les informations à l'utilisateur et gère les interactions avec celui-ci.
+    //
+    //******
+    //Vue : C'est comme une fenêtre par laquelle tu regardes à l'intérieur
+    // de ton jeu vidéo préféré. C'est là où tu vois tout ce qui se passe
+    // et où tu interagis avec le jeu.
+    //******
+
+
+    //UNE CLASSE :
+
+    //En programmation orientée objet, une classe est un modèle pour créer des objets.
+    // Elle définit les propriétés (attributs) et les comportements (méthodes)
+    // des objets qui seront créés à partir d'elle.
+    //
+    //******
+    //Imagine que tu as une boîte à outils avec plein d'outils différents dedans.
+    // Chaque outil a un nom et fait quelque chose spécifique.
+    // Une classe, c'est un peu comme une boîte à outils pour les ordinateurs.
+    // Elle contient des instructions sur ce que l'ordinateur peut faire.
+    //******
+
 @Controller
 public class HomeController {
+
 
     @GetMapping("/") // '/' racine du projet
     public String accueil(){
@@ -33,40 +59,6 @@ public class HomeController {
     @GetMapping("/rapports") // '/'
     public String historiqueDesInterventions(){
         return "historiqueDesInterventions"; // une page rapports
-    }
-
-    @GetMapping("/contact") // '/'
-    public String contact(ModelMap model){
-        model.put("contact", new Contact());// je lui envoie un formulaire avec champs vide
-        return "contact"; // une page contact
-    }
-
-
-
-
-
-    @PostMapping("/contact")
-    public String recupContactForm(@ModelAttribute Contact contact, ModelMap model) {
-        model.put("contact", contact);
-        // Verifier le nom
-        if (!TextChampManager.isNameValide(contact.getNom())) {
-            model.put("error", "Votre nom n'est pas valide");
-            return "contact";
-
-        }
-
-        // je dois vérifier email et message
-        // Toutes les données sont bon
-
-        // save to csv
-        try {
-            DataSourceManager.saveContact(contact);
-        }catch (Exception ex){
-            model.put("error", ex.getMessage());
-        }
-
-        return "contact";
-
     }
 
 }

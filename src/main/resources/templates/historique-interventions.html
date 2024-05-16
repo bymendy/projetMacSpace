@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historique des Interventions</title>
+</head>
+<body>
+<h1>Historique des Interventions</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Détails Intervention</th>
+        <th>Date Heure Intervention</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="historique : ${historiques}">
+        <td th:text="${historique.idHistorique}"></td>
+        <td th:text="${historique.detailsIntervention}"></td>
+        <td th:text="${historique.dateHeureIntervention}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
