@@ -7,17 +7,29 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Le service HistoriqueInterventionService gère les opérations métier liées à l'historique des interventions.
+ */
 @Service
 public class HistoriqueInterventionService {
 
     private final HistoriqueInterventionRepository historiqueInterventionRepository;
 
+    /**
+     * Constructeur du service HistoriqueInterventionService.
+     *
+     * @param historiqueInterventionRepository Le repository utilisé pour accéder aux données de l'historique des interventions dans la base de données.
+     */
     @Autowired
     public HistoriqueInterventionService(HistoriqueInterventionRepository historiqueInterventionRepository) {
         this.historiqueInterventionRepository = historiqueInterventionRepository;
     }
 
-    // Méthode pour récupérer tous les historiques d'intervention
+    /**
+     * Récupère tous les historiques d'intervention.
+     *
+     * @return La liste de tous les historiques d'intervention.
+     */
     public List<HistoriqueIntervention> getAllHistoriquesIntervention() {
         return historiqueInterventionRepository.findAll();
     }

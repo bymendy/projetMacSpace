@@ -6,6 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Représente un technicien dans le système.
+ */
 @Entity
 @Getter
 @Setter

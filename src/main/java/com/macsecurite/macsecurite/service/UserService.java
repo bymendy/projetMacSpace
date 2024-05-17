@@ -10,7 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-// L'annotation @Service indique que cette classe est un composant Spring qui fournit des services métier.
+/**
+ * Le service UserService est responsable de la gestion des utilisateurs et fournit des services métier associés.
+ */
 @Service
 public class UserService implements UserDetailsService {
 
@@ -18,12 +20,23 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    // Méthode pour rechercher un utilisateur par son adresse email.
+    /**
+     * Recherche un utilisateur par son adresse email.
+     *
+     * @param email L'adresse email de l'utilisateur à rechercher.
+     * @return L'utilisateur correspondant à l'adresse email spécifiée.
+     */
     public Users findByEmail(String email) {
         return userRepository.findByEmailLikeIgnoreCase(email);
     }
 
-    // Implémentation de la méthode d'UserDetailsService pour charger un utilisateur par son nom d'utilisateur.
+    /**
+     * Implémentation de la méthode d'UserDetailsService pour charger un utilisateur par son nom d'utilisateur.
+     *
+     * @param username Le nom d'utilisateur (adresse email) de l'utilisateur à charger.
+     * @return Les détails de l'utilisateur chargé.
+     * @throws UsernameNotFoundException Si aucun utilisateur correspondant au nom d'utilisateur spécifié n'est trouvé.
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Recherche de l'utilisateur dans le repository par son email (qui est utilisé comme nom d'utilisateur).
