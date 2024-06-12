@@ -3,13 +3,21 @@ package com.macsecurite.macsecurite.controller;
 import com.macsecurite.macsecurite.manager.DataSourceManager;
 import com.macsecurite.macsecurite.manager.TextChampManager;
 import com.macsecurite.macsecurite.model.Contact;
+import com.macsecurite.macsecurite.model.Role;
+import com.macsecurite.macsecurite.model.Users;
+import com.macsecurite.macsecurite.service.RoleService;
+import com.macsecurite.macsecurite.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-    // VUE :
+import java.util.List;
+
+// VUE :
 
     // La vue représente l'interface utilisateur dans une application logicielle.
     // Elle affiche les informations à l'utilisateur et gère les interactions avec celui-ci.
@@ -34,31 +42,98 @@ import org.springframework.web.bind.annotation.PostMapping;
     // Elle contient des instructions sur ce que l'ordinateur peut faire.
     //******
 
+/**
+ * Contrôleur pour gérer les pages principales de l'application.
+ */
 @Controller
 public class HomeController {
 
+    @Autowired
+    private RoleService roleService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    /**
+     * Méthode GET pour afficher la page d'accueil.
+     * Cette méthode crée un compte utilisateur avec un rôle "CLIENT".
+     *
+     * @return Le nom de la vue Thymeleaf pour la page d'accueil.
+     */
+    @GetMapping
+    public String home() {
+        // Créer un compte
+        /*Role role = new Role();
+        role.setName("CLIENT");
+        roleService.saveRole(role);
+
+        Users users = new Users();
+        users.setEmail("a@a.fr");
+        users.setPassword(bCryptPasswordEncoder.encode("admin"));
+        users.setRoles(List.of(role));
+        users.setName("Admin");
+
+        userService.saveUser(users); */
+
+        return "home";
+    }
+
+
+    /*@GetMapping("/login")
+    public String login(){
+        return "login";
+    }*/
+
+    /**
+     * Méthode GET pour afficher la page d'accueil principale.
+     *
+     * @return Le nom de la vue Thymeleaf pour la page d'accueil principale.
+     */
     @GetMapping("/") // '/' racine du projet
-    public String accueil(){
+    public String accueil() {
         return "accueil"; // une page html
     }
+
+    /**
+     * Méthode GET pour afficher la page de gestion des clients.
+     *
+     * @return Le nom de la vue Thymeleaf pour la gestion des clients.
+     */
     @GetMapping("/clients") // '/'
-    public String gestionDesClients(){
+    public String gestionDesClients() {
         return "gestionDesClients"; // une page Gestion Clients
     }
+
+    /**
+     * Méthode GET pour afficher la page de planification des interventions.
+     *
+     * @return Le nom de la vue Thymeleaf pour la planification des interventions.
+     */
     @GetMapping("/interventions") // '/'
-    public String plannificatonDesInterventions(){
+    public String plannificatonDesInterventions() {
         return "plannificatonDesInterventions"; // une page Interventions
     }
 
+    /**
+     * Méthode GET pour afficher la page de gestion des stocks.
+     *
+     * @return Le nom de la vue Thymeleaf pour la gestion des stocks.
+     */
     @GetMapping("/stocks") // '/'
-    public String gestionDesStocks(){
+    public String gestionDesStocks() {
         return "gestionDesStocks"; // une page stocks
     }
 
+    /**
+     * Méthode GET pour afficher la page de l'historique des interventions.
+     *
+     * @return Le nom de la vue Thymeleaf pour l'historique des interventions.
+     */
     @GetMapping("/rapports") // '/'
-    public String historiqueDesInterventions(){
+    public String historiqueDesInterventions() {
         return "historiqueDesInterventions"; // une page rapports
     }
-
 }

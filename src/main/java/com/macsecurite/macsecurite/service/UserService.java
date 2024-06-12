@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserDetailsService {
 
     // Injection de dépendance : associe cette classe à un repository pour accéder aux données des utilisateurs.
-    @Autowired
+    @Autowired // New UserRepository
     private UserRepository userRepository;
 
     /**
@@ -30,6 +30,10 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmailLikeIgnoreCase(email);
     }
 
+    public Users saveUser(Users user){
+        return userRepository.save(user);
+    }
+
     /**
      * Implémentation de la méthode d'UserDetailsService pour charger un utilisateur par son nom d'utilisateur.
      *
@@ -40,7 +44,7 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Recherche de l'utilisateur dans le repository par son email (qui est utilisé comme nom d'utilisateur).
-        Users user = userRepository.findByEmailLikeIgnoreCase(username);
+        UserDetails user = userRepository.findByEmailLikeIgnoreCase(username);
         // Si l'utilisateur n'est pas trouvé, une exception est levée.
         if (user == null) {
             throw new UsernameNotFoundException("User not found");

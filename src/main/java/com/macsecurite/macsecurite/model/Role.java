@@ -33,6 +33,6 @@ public class Role implements GrantedAuthority { // Implémente l'interface Grant
      */
     @Override
     public String getAuthority() { //
-        return this.name; //
+        return this.name; // nom du role
     }
 }

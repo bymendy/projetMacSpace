@@ -3,7 +3,11 @@ package com.macsecurite.macsecurite.service;
 import com.macsecurite.macsecurite.model.Client;
 import com.macsecurite.macsecurite.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Cette classe représente la logique métier associée aux clients.
@@ -45,4 +49,8 @@ public class ClientService {
     }
 
     // Autres méthodes spécifiques à la gestion des clients
+
+    
+
+
 }
