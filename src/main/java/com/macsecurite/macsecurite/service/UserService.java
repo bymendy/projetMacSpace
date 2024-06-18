@@ -5,10 +5,13 @@ import com.macsecurite.macsecurite.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.security.SignatureException;
 
 /**
  * Le service UserService est responsable de la gestion des utilisateurs et fournit des services métier associés.
@@ -21,6 +24,17 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     /**
+     * Enregistre un utilisateur dans la base de données.
+     *
+     * @param users l'utilisateur à enregistrer
+     * @return l'utilisateur enregistré
+     */
+    public Users save(Users users) {
+        // Sauvegarde l'utilisateur dans la base de données
+        return userRepository.save(users);
+    }
+
+    /**
      * Recherche un utilisateur par son adresse email.
      *
      * @param email L'adresse email de l'utilisateur à rechercher.
@@ -30,9 +44,27 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmailLikeIgnoreCase(email);
     }
 
+    public Users findBytoken(String token){
+        return userRepository.findByToken(token) ;
+    }
+
+
     public Users saveUser(Users user){
         return userRepository.save(user);
     }
+
+
+    /**
+     * Vérifie si un token existe déjà dans la base de données.
+     *
+     * @param token le token à vérifier
+     * @return true si le token existe, false sinon
+     */
+    public boolean isTokenExiste(String token) {
+        return userRepository.findByToken(token) != null;
+    }
+
+
 
     /**
      * Implémentation de la méthode d'UserDetailsService pour charger un utilisateur par son nom d'utilisateur.
@@ -52,4 +84,11 @@ public class UserService implements UserDetailsService {
         // Sinon, retourne l'utilisateur trouvé.
         return user;
     }
+
+
+
+    private static final String SECRET_KEY = "your_secret_key"; // Replace with your actual secret key
+
+
+
 }

@@ -18,4 +18,12 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
      * @return L'utilisateur trouvé, ou null s'il n'existe pas
      */
     Users findByEmailLikeIgnoreCase(String email);
+
+    /**
+     * Trouve un utilisateur par son token.
+     *
+     * @param token le token à rechercher
+     * @return l'utilisateur correspondant ou null si aucun utilisateur n'est trouvé
+     */
+    Users findByToken(String token);
 }

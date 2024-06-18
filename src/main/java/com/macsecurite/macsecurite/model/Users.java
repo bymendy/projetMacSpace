@@ -2,15 +2,20 @@ package com.macsecurite.macsecurite.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
  * L'entité Users représente un utilisateur dans le système.
  */
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 @Data // Génère automatiquement les méthodes toString(), equals(), hashCode(), et les méthodes getters et setters
@@ -21,12 +26,18 @@ public class Users implements UserDetails { // Implémente l'interface UserDetai
     private Integer id; // Champ représentant l'identifiant unique de l'utilisateur
 
     private String name; // Champ représentant le nom de l'utilisateur
+    private String prenom; // Champ représentant le prenom de l'utilisateur
     private String email; // Champ représentant l'email de l'utilisateur
     private String password; // Champ représentant le mot de passe de l'utilisateur
     private boolean active; // Champ représentant l'état d'activation de l'utilisateur
+    private String token;
+    private Date dateCreation;
+
 
     @ManyToMany(fetch = FetchType.EAGER) // Indique une relation Many-to-Many entre Users et Role
     private List<Role> roles; // Champ représentant les rôles associés à l'utilisateur
+
+
 
     /**
      * Récupère les autorités accordées à l'utilisateur.

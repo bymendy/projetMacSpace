@@ -9,9 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produits-securite")
-/**
- * Contrôleur pour gérer les produits de sécurité.
- */
+
+// Contrôleur pour gérer les produits de sécurité.
 public class ProduitSecuriteController {
 
     private final ProduitSecuriteService produitSecuriteService;

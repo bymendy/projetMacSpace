@@ -5,6 +5,7 @@ import com.macsecurite.macsecurite.model.Client;
 
 // Import de l'interface JpaRepository fournie par Spring Data JPA
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
 // Interface : En programmation, une interface définit un ensemble de méthodes
@@ -16,7 +17,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // ce que ton personnage doit faire. Une interface, c'est comme un menu
 // qui montre à un programme comment communiquer avec d'autres programmes.
 //******
-
+@Repository
 // Déclaration de l'interface ClientRepository qui étend JpaRepository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 

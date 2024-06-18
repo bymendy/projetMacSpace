@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public class Aleatoire {
-    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$-)à!è§";
     private static final Random RANDOM = new SecureRandom();
 
     /**

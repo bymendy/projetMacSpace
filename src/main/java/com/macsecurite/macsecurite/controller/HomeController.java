@@ -7,7 +7,14 @@ import com.macsecurite.macsecurite.model.Role;
 import com.macsecurite.macsecurite.model.Users;
 import com.macsecurite.macsecurite.service.RoleService;
 import com.macsecurite.macsecurite.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,6 +23,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+
+import static org.springframework.security.web.context.HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
 
 // VUE :
 
@@ -86,6 +95,24 @@ public class HomeController {
     public String login(){
         return "login";
     }*/
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute Users users, HttpServletRequest request){
+        users.setActive(true);
+        users.setPassword(bCryptPasswordEncoder.encode(users.getPassword()));
+        users.setRoles(List.of(roleService.getRole(RoleService.ROLE.CLIENT)));
+
+        users = userService.saveUser(users);
+
+        // creer la session
+      Authentication authentication = new UsernamePasswordAuthenticationToken(users, null, users.getAuthorities());
+        SecurityContext sc = SecurityContextHolder.getContext();
+        HttpSession httpSession = request.getSession();
+        httpSession.setAttribute(SPRING_SECURITY_CONTEXT_KEY, sc);
+
+
+        return "redirect:/client";
+    }
 
     /**
      * Méthode GET pour afficher la page d'accueil principale.

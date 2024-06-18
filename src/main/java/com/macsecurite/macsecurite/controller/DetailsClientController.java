@@ -7,9 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 // Définition du contrôleur pour afficher les détails d'un client
-@Controller
+@RestController
 public class DetailsClientController {
 
     private final ClientService clientService;
