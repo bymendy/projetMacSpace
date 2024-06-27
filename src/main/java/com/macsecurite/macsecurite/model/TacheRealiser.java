@@ -20,7 +20,7 @@ public class TacheRealiser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //  indique que la valeur de l'attribut idTache sera générée automatiquement par la bdd
     // lors de l'insertion d'une nouvelle entité
-    private Long idTache;
+    private Integer idTache;
 
     // Description de la tâche
     private String description;

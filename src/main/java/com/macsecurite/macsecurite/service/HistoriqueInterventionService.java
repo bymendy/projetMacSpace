@@ -13,17 +13,17 @@ import java.util.List;
 @Service
 public class HistoriqueInterventionService {
 
-    private final HistoriqueInterventionRepository historiqueInterventionRepository;
+    private  HistoriqueInterventionRepository historiqueInterventionRepository;
 
-    /**
-     * Constructeur du service HistoriqueInterventionService.
-     *
-     * @param historiqueInterventionRepository Le repository utilisé pour accéder aux données de l'historique des interventions dans la base de données.
-     */
-    @Autowired
-    public HistoriqueInterventionService(HistoriqueInterventionRepository historiqueInterventionRepository) {
-        this.historiqueInterventionRepository = historiqueInterventionRepository;
-    }
+    ///**
+    //* Constructeur du service HistoriqueInterventionService.
+    //*
+    //* @param historiqueInterventionRepository Le repository utilisé pour accéder aux données de l'historique des interventions dans la base de données.
+    //*/
+    //@Autowired
+    //public HistoriqueInterventionService(HistoriqueInterventionRepository historiqueInterventionRepository) {
+    //this.historiqueInterventionRepository = historiqueInterventionRepository;
+    //}
 
     /**
      * Récupère tous les historiques d'intervention.

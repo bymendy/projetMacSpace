@@ -2,27 +2,29 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.Commande;
 import com.macsecurite.macsecurite.service.CommandeService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Data
 @RestController
 @RequestMapping("/commandes")
 public class CommandeController {
 
-    private final CommandeService commandeService;
+    private  CommandeService commandeService;
 
-    /**
-     * Constructeur de la classe CommandeController.
-     * Ce constructeur est utilisé pour injecter le service CommandeService via l'injection de dépendance.
-     *
-     * @param commandeService Le service CommandeService à injecter.
-     */
-    @Autowired
-    public CommandeController(CommandeService commandeService) {
-        this.commandeService = commandeService;
-    }
+    ///**
+    // * Constructeur de la classe CommandeController.
+    // * Ce constructeur est utilisé pour injecter le service CommandeService via l'injection de dépendance.
+    // *
+    //* @param commandeService Le service CommandeService à injecter.
+    //*/
+    //@Autowired
+    //public CommandeController(CommandeService commandeService) {
+    //this.commandeService = commandeService;
+    //}
 
 
     // Méthode POST pour créer une commande
@@ -60,7 +62,7 @@ public class CommandeController {
      * @return Retourne la commande correspondant à l'identifiant spécifié, ou null si aucune commande n'est trouvée.
      */
     @GetMapping("/{id}")
-    public Commande getCommandeById(@PathVariable Long id) {
+    public Commande getCommandeById(@PathVariable Integer id) {
         return commandeService.getCommandeById(id);
     }
 

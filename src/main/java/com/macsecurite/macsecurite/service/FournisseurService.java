@@ -14,17 +14,17 @@ import java.util.List;
 @Service
 public class FournisseurService {
 
-    private final FournisseurRepository fournisseurRepository;
+    private  FournisseurRepository fournisseurRepository;
 
-    /**
-     * Constructeur du service FournisseurService.
-     *
-     * @param fournisseurRepository Le repository utilisé pour accéder aux données des fournisseurs dans la base de données.
-     */
-    @Autowired
-    public FournisseurService(FournisseurRepository fournisseurRepository) {
-        this.fournisseurRepository = fournisseurRepository;
-    }
+    ///**
+    // * Constructeur du service FournisseurService.
+    //*
+    //* @param fournisseurRepository Le repository utilisé pour accéder aux données des fournisseurs dans la base de données.
+    //*/
+    //@Autowired
+    //public FournisseurService(FournisseurRepository fournisseurRepository) {
+    //this.fournisseurRepository = fournisseurRepository;
+    //}
 
     /**
      * Sauvegarde un fournisseur dans la base de données.
@@ -42,7 +42,7 @@ public class FournisseurService {
      * @param id L'identifiant du fournisseur à récupérer.
      * @return Le fournisseur trouvé ou null s'il n'existe pas.
      */
-    public Fournisseur getFournisseurById(Long id) {
+    public Fournisseur getFournisseurById(Integer id) {
         return fournisseurRepository.findById(id).orElse(null);
     }
 
@@ -61,7 +61,7 @@ public class FournisseurService {
      * @param id L'identifiant du fournisseur.
      * @return La liste des produits fournis par le fournisseur ou null s'il n'existe pas.
      */
-    public List<ProduitSecurite> getProduitsFournisByFournisseurId(Long id) {
+    public List<ProduitSecurite> getProduitsFournisByFournisseurId(Integer id) {
         // Recherche le fournisseur dans la base de données par son identifiant
         Fournisseur fournisseur = fournisseurRepository.findById(id).orElse(null);
 

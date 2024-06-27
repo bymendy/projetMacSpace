@@ -13,17 +13,17 @@ import java.util.List;
 @Service
 public class InterventionService {
 
-    private final InterventionRepository interventionRepository;
+    private  InterventionRepository interventionRepository;
 
-    /**
-     * Constructeur du service InterventionService.
-     *
-     * @param interventionRepository Le repository utilisé pour accéder aux données des interventions dans la base de données.
-     */
-    @Autowired
-    public InterventionService(InterventionRepository interventionRepository) {
-        this.interventionRepository = interventionRepository;
-    }
+    ///**
+    // * Constructeur du service InterventionService.
+    //*
+    //* @param interventionRepository Le repository utilisé pour accéder aux données des interventions dans la base de données.
+    //*/
+    //@Autowired
+    //public InterventionService(InterventionRepository interventionRepository) {
+    //this.interventionRepository = interventionRepository;
+    //}
 
     /**
      * Planifie une intervention enregistrée dans la base de données.

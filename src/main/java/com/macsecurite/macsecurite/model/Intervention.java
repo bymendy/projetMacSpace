@@ -20,7 +20,7 @@ public class Intervention {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idIntervention;
+    private Integer idIntervention;
 
     /**
      * Type de l'intervention.

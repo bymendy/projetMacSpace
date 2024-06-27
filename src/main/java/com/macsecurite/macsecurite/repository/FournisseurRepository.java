@@ -9,7 +9,7 @@ import java.util.List;
  * Interface de repository responsable de l'accès aux données pour l'entité Fournisseur dans la base de données.
  */
 @Repository
-public interface FournisseurRepository extends JpaRepository<Fournisseur, Long> {
+public interface FournisseurRepository extends JpaRepository<Fournisseur, Integer> {
     /**
      * Méthode pour rechercher les fournisseurs par leur nom.
      * @param nom Le nom du fournisseur à rechercher.

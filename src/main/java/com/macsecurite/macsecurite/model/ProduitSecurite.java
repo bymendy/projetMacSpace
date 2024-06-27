@@ -19,7 +19,7 @@ public class ProduitSecurite {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     /**
      * Nom du produit de sécurité.

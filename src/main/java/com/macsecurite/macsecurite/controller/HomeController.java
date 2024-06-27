@@ -9,6 +9,7 @@ import com.macsecurite.macsecurite.service.RoleService;
 import com.macsecurite.macsecurite.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -50,7 +51,7 @@ import static org.springframework.security.web.context.HttpSessionSecurityContex
     // Une classe, c'est un peu comme une boîte à outils pour les ordinateurs.
     // Elle contient des instructions sur ce que l'ordinateur peut faire.
     //******
-
+@Data
 /**
  * Contrôleur pour gérer les pages principales de l'application.
  */

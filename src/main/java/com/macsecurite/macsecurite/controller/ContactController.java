@@ -2,12 +2,14 @@ package com.macsecurite.macsecurite.controller;
 import com.macsecurite.macsecurite.manager.DataSourceManager;
 import com.macsecurite.macsecurite.manager.TextChampManager;
 import com.macsecurite.macsecurite.model.Contact;
+import lombok.Data;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Data
 @RestController
 public class ContactController {
 

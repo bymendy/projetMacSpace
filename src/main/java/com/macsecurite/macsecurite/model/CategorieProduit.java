@@ -17,7 +17,7 @@ public class CategorieProduit {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     /**
      * Nom de la catégorie de produit.

@@ -13,17 +13,17 @@ import java.util.List;
 @Service
 public class ProduitSecuriteService {
 
-    private final ProduitSecuriteRepository produitSecuriteRepository;
+    private  ProduitSecuriteRepository produitSecuriteRepository;
 
-    /**
-     * Constructeur du service ProduitSecuriteService.
-     *
-     * @param produitSecuriteRepository Le repository utilisé pour accéder aux données des produits de sécurité dans la base de données.
-     */
-    @Autowired
-    public ProduitSecuriteService(ProduitSecuriteRepository produitSecuriteRepository) {
-        this.produitSecuriteRepository = produitSecuriteRepository;
-    }
+    ///**
+    //* Constructeur du service ProduitSecuriteService.
+    //*
+    //* @param produitSecuriteRepository Le repository utilisé pour accéder aux données des produits de sécurité dans la base de données.
+    //*/
+    //@Autowired
+    //public ProduitSecuriteService(ProduitSecuriteRepository produitSecuriteRepository) {
+    // this.produitSecuriteRepository = produitSecuriteRepository;
+    //}
 
     /**
      * Enregistre un produit de sécurité dans la base de données.
@@ -41,7 +41,7 @@ public class ProduitSecuriteService {
      * @param id L'identifiant du produit de sécurité à récupérer.
      * @return Le produit de sécurité correspondant à l'identifiant, ou null s'il n'est pas trouvé.
      */
-    public ProduitSecurite getProduitSecuriteById(Long id) {
+    public ProduitSecurite getProduitSecuriteById(Integer id) {
         return produitSecuriteRepository.findById(id).orElse(null);
     }
 

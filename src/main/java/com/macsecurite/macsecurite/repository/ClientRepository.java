@@ -19,7 +19,7 @@ import org.springframework.stereotype.Repository;
 //******
 @Repository
 // Déclaration de l'interface ClientRepository qui étend JpaRepository
-public interface ClientRepository extends JpaRepository<Client, Long> {
+public interface ClientRepository extends JpaRepository<Client, Integer> {
 
     // Méthode supplémentaire :
 

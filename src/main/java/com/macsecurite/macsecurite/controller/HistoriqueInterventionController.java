@@ -2,6 +2,7 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.HistoriqueIntervention;
 import com.macsecurite.macsecurite.service.HistoriqueInterventionService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,16 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+@Data
 @Controller
 public class HistoriqueInterventionController {
 
-    private final HistoriqueInterventionService historiqueInterventionService;
+    private  HistoriqueInterventionService historiqueInterventionService;
 
     // Injection du service HistoriqueInterventionService par le constructeur
-    @Autowired
-    public HistoriqueInterventionController(HistoriqueInterventionService historiqueInterventionService) {
-        this.historiqueInterventionService = historiqueInterventionService;
-    }
+    //@Autowired
+    //public HistoriqueInterventionController(HistoriqueInterventionService historiqueInterventionService) {
+    // this.historiqueInterventionService = historiqueInterventionService;
+    //}
 
     /**
      * Méthode GET pour afficher l'historique des interventions.

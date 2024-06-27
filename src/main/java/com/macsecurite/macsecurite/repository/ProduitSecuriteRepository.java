@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 // Ce repository est responsable de l'accès aux données pour l'entité ProduitSecurite dans la bdd.
-public interface ProduitSecuriteRepository extends JpaRepository<ProduitSecurite, Long> {
+public interface ProduitSecuriteRepository extends JpaRepository<ProduitSecurite, Integer> {
     // Ajout des méthodes supplémentaires si nécessaire
 }

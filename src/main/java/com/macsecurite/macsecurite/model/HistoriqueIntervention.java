@@ -19,7 +19,7 @@ public class HistoriqueIntervention {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idHistorique;
+    private Integer idHistorique;
 
     /**
      * Intervention associée à cet historique.

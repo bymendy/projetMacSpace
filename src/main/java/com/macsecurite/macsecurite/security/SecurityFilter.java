@@ -1,11 +1,13 @@
 package com.macsecurite.macsecurite.security;
 
+import com.macsecurite.macsecurite.manager.JwtTokenManager;
 import com.macsecurite.macsecurite.service.UserService;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,6 +18,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+@Data
 @Component
 public class SecurityFilter extends OncePerRequestFilter {
 
@@ -40,7 +43,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         // Si l'URL de la requête contient "/api/login", continuer le filtrage sans traitement supplémentaire
 
         //Login
-        if (urlRequest.contains("/api/login")){
+        if (urlRequest.startsWith("/api/open/")){
             filterChain.doFilter(request, response);
             return;
         }
@@ -51,6 +54,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             // Authentification
             //Authorization: bearer eyolfdilfsdkfdslkflsdkfjjdslfhlsdfjlsdfjlk
             String token = header.substring(7);
+            token = JwtTokenManager.getUser(token);
             UserDetails user = userService.findBytoken(token);
 
             if (user == null){

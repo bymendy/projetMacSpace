@@ -1,5 +1,7 @@
 package com.macsecurite.macsecurite.model;
 
+import com.macsecurite.macsecurite.repository.UserRepository;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;

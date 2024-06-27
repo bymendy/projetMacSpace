@@ -3,21 +3,23 @@ package com.macsecurite.macsecurite.controller;
 import com.macsecurite.macsecurite.model.Fournisseur;
 import com.macsecurite.macsecurite.model.ProduitSecurite;
 import com.macsecurite.macsecurite.service.FournisseurService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Data
 @RestController
 @RequestMapping("/fournisseurs")
 public class FournisseurController {
 
-    private final FournisseurService fournisseurService;
+    private  FournisseurService fournisseurService;
 
-    @Autowired
-    public FournisseurController(FournisseurService fournisseurService) {
-        this.fournisseurService = fournisseurService;
-    }
+    //@Autowired
+    //public FournisseurController(FournisseurService fournisseurService) {
+    // this.fournisseurService = fournisseurService;
+    //}
 
     /**
      * Méthode POST pour créer un nouveau fournisseur.
@@ -47,7 +49,7 @@ public class FournisseurController {
      * @return Le fournisseur correspondant à l'identifiant donné.
      */
     @GetMapping("/{id}")
-    public Fournisseur getFournisseurById(@PathVariable Long id) {
+    public Fournisseur getFournisseurById(@PathVariable Integer id) {
         return fournisseurService.getFournisseurById(id);
     }
 
@@ -57,10 +59,10 @@ public class FournisseurController {
      * @param id L'identifiant du fournisseur.
      * @return La liste des produits fournis par le fournisseur.
      */
-    @GetMapping("/{id}/produits")
-    public List<ProduitSecurite> getProductsSuppliedBySupplier(@PathVariable Long id) {
+   /* @GetMapping("/{id}/produits")
+    public List<ProduitSecurite> getProductsSuppliedBySupplier(@PathVariable Integer id) {
         return fournisseurService.getProduitsFournisByFournisseurId(id);
-    }
+    }*/
 
     /**
      * Méthode GET pour rechercher les fournisseurs par nom ou par adresse.

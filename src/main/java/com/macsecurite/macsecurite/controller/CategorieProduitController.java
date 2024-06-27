@@ -2,29 +2,25 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.CategorieProduit;
 import com.macsecurite.macsecurite.service.CategorieProduitService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Contrôleur REST pour gérer les catégories de produit.
+ */
 @RestController
 @RequestMapping("/categories-produit")
 public class CategorieProduitController {
 
-    private final CategorieProduitService categorieProduitService;
+    private  CategorieProduitService categorieProduitService;
 
-    /**
-     * Constructeur de la classe CategorieProduitController.
-     * Ce constructeur prend en paramètre le service CategorieProduitService et l'injecte dans le contrôleur.
-     *
-     * @param categorieProduitService Le service CategorieProduitService à injecter dans le contrôleur.
-     */
-    @Autowired
-    public CategorieProduitController(CategorieProduitService categorieProduitService) {
-        this.categorieProduitService = categorieProduitService;
-    }
 
-    // Méthode POST pour créer une catégorie de produit
+
+    //public CategorieProduitController(CategorieProduitService categorieProduitService) {
+        //this.categorieProduitService = categorieProduitService;
+    //}
+
     /**
      * Méthode POST pour créer une catégorie de produit.
      *
@@ -36,7 +32,6 @@ public class CategorieProduitController {
         return categorieProduitService.saveCategorieProduit(categorieProduit);
     }
 
-    // Méthode GET pour récupérer toutes les catégories de produit
     /**
      * Méthode GET pour récupérer toutes les catégories de produit.
      *
@@ -47,7 +42,6 @@ public class CategorieProduitController {
         return categorieProduitService.getAllCategoriesProduit();
     }
 
-    // Méthode GET pour récupérer une catégorie de produit par son identifiant
     /**
      * Méthode GET pour récupérer une catégorie de produit par son identifiant.
      *
@@ -55,7 +49,7 @@ public class CategorieProduitController {
      * @return La catégorie de produit correspondant à l'identifiant spécifié.
      */
     @GetMapping("/{id}")
-    public CategorieProduit getCategorieProduitById(@PathVariable Long id) {
+    public CategorieProduit getCategorieProduitById(@PathVariable Integer id) {
         return categorieProduitService.getCategorieProduitById(id);
     }
 

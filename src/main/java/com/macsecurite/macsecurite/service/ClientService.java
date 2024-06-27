@@ -16,17 +16,17 @@ import java.util.List;
 public class ClientService {
 
     // Repository pour accéder aux données des clients
-    private final ClientRepository clientRepository;
+    private  ClientRepository clientRepository;
 
-    /**
-     * Constructeur de la classe ClientService.
-     *
-     * @param clientRepository Le repository des clients
-     */
-    @Autowired
-    public ClientService(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
-    }
+    ///**
+    //* Constructeur de la classe ClientService.
+    //*
+    // * @param clientRepository Le repository des clients
+    // */
+    //@Autowired
+    //public ClientService(ClientRepository clientRepository) {
+    //   this.clientRepository = clientRepository;
+    //}
 
     /**
      * Enregistre un nouveau client.
@@ -44,7 +44,7 @@ public class ClientService {
      * @param id L'identifiant du client à récupérer
      * @return Le client trouvé, ou null s'il n'existe aucun client correspondant à l'identifiant
      */
-    public Client getClientById(Long id) {
+    public Client getClientById(Integer id) {
         return clientRepository.findById(id).orElse(null);
     }
 

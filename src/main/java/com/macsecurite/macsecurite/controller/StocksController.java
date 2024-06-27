@@ -1,9 +1,10 @@
 package com.macsecurite.macsecurite.controller;
+import lombok.Data;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+@Data
 /**
  * Contrôleur pour gérer les stocks.
  */

@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  * pour l'entité Intervention dans la base de données.
  */
 @Repository
-public interface InterventionRepository extends JpaRepository<Intervention, Long> {
+public interface InterventionRepository extends JpaRepository<Intervention, Integer> {
     // Ajout des méthodes supplémentaires si nécessaire
 }

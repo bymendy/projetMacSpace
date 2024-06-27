@@ -2,25 +2,26 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.Client;
 import com.macsecurite.macsecurite.service.ClientService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@Data
 @RestController // Cette annotation indique que ce contrôleur traite les requêtes REST
 @RequestMapping("/clients") // Cette annotation spécifie le chemin de base pour les requêtes adressées à ce contrôleur
 public class ClientsController {
 
-    private final ClientService clientService; // Injection du service ClientService
+    private  ClientService clientService; // Injection du service ClientService
 
-    /**
-     * Constructeur de la classe ClientsController.
-     * Ce constructeur prend en paramètre le service ClientService et l'injecte dans le contrôleur.
-     *
-     * @param clientService Le service ClientService à injecter dans le contrôleur.
-     */
-    @Autowired // Annotation pour l'injection de dépendance
-    public ClientsController(ClientService clientService) { // Constructeur prenant en paramètre le service ClientService
-        this.clientService = clientService; // Initialisation du service ClientService
-    }
+    ///**
+    //* Constructeur de la classe ClientsController.
+    //* Ce constructeur prend en paramètre le service ClientService et l'injecte dans le contrôleur.
+    //*
+    //* @param clientService Le service ClientService à injecter dans le contrôleur.
+    //*/
+    //@Autowired // Annotation pour l'injection de dépendance
+    //public ClientsController(ClientService clientService) { // Constructeur prenant en paramètre le service ClientService
+    // this.clientService = clientService; // Initialisation du service ClientService
+    //}
 
 
     // Endpoint pour enregistrer un nouveau client

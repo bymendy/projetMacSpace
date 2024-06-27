@@ -2,11 +2,12 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.Technicien;
 import com.macsecurite.macsecurite.service.TechnicienService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Data
 @RestController
 @RequestMapping("/techniciens")
 /**
@@ -14,17 +15,17 @@ import java.util.List;
  */
 public class TechnicienController {
 
-    private final TechnicienService technicienService;
+    private  TechnicienService technicienService;
 
-    /**
-     * Injection du service TechnicienService via le constructeur.
-     *
-     * @param technicienService Le service TechnicienService à injecter.
-     */
-    @Autowired
-    public TechnicienController(TechnicienService technicienService) {
-        this.technicienService = technicienService;
-    }
+    ///**
+    //* Injection du service TechnicienService via le constructeur.
+    //*
+    //* @param technicienService Le service TechnicienService à injecter.
+    //*/
+    //@Autowired
+    //public TechnicienController(TechnicienService technicienService) {
+    //this.technicienService = technicienService;
+    //}
 
     /**
      * Méthode POST pour créer un technicien.
@@ -54,7 +55,7 @@ public class TechnicienController {
      * @return Le technicien correspondant à l'identifiant.
      */
     @GetMapping("/{id}")
-    public Technicien getTechnicienById(@PathVariable Long id) {
+    public Technicien getTechnicienById(@PathVariable Integer id) {
         return technicienService.getTechnicienById(id);
     }
 }

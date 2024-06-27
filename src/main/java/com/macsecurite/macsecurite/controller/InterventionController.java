@@ -2,11 +2,12 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.Intervention;
 import com.macsecurite.macsecurite.service.InterventionService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Data
 @RestController
 @RequestMapping("/interventions")
 /**
@@ -14,17 +15,17 @@ import java.util.List;
  */
 public class InterventionController {
 
-    private final InterventionService interventionService;
+    private  InterventionService interventionService;
 
-    /**
-     * Constructeur pour l'injection de dépendance du service InterventionService.
-     *
-     * @param interventionService Le service InterventionService à injecter.
-     */
-    @Autowired
-    public InterventionController(InterventionService interventionService) {
-        this.interventionService = interventionService;
-    }
+    ///**
+    // * Constructeur pour l'injection de dépendance du service InterventionService.
+    //// *
+    //* @param interventionService Le service InterventionService à injecter.
+    // */
+    //@Autowired
+    //public InterventionController(InterventionService interventionService) {
+    // this.interventionService = interventionService;
+    //}
 
     /**
      * Endpoint pour planifier une nouvelle intervention.

@@ -20,7 +20,7 @@ public class Contact {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)// auto increment
-    private int id;
+    private Integer id;
 
     /**
      * Nom du contact.

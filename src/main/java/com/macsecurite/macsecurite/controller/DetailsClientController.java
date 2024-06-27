@@ -2,6 +2,7 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.Client;
 import com.macsecurite.macsecurite.service.ClientService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+@Data
 // Définition du contrôleur pour afficher les détails d'un client
 @RestController
 public class DetailsClientController {
@@ -29,7 +31,7 @@ public class DetailsClientController {
      * @return Nom de la vue à afficher (clientDetails.html).
      */
     @GetMapping("/clients/{clientId}")
-    public String getClientDetails(@PathVariable Long clientId, Model model) {
+    public String getClientDetails(@PathVariable Integer clientId, Model model) {
         // Récupération du client à partir de l'ID fourni dans l'URL
         Client client = clientService.getClientById(clientId);
 

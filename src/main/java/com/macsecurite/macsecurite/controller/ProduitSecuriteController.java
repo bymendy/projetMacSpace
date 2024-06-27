@@ -2,28 +2,29 @@ package com.macsecurite.macsecurite.controller;
 
 import com.macsecurite.macsecurite.model.ProduitSecurite;
 import com.macsecurite.macsecurite.service.ProduitSecuriteService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Data
 @RestController
 @RequestMapping("/produits-securite")
 
 // Contrôleur pour gérer les produits de sécurité.
 public class ProduitSecuriteController {
 
-    private final ProduitSecuriteService produitSecuriteService;
+    private  ProduitSecuriteService produitSecuriteService;
 
-    /**
-     * Constructeur pour l'injection de dépendance du service ProduitSecuriteService.
-     *
-     * @param produitSecuriteService Le service ProduitSecuriteService à injecter.
-     */
-    @Autowired
-    public ProduitSecuriteController(ProduitSecuriteService produitSecuriteService) {
-        this.produitSecuriteService = produitSecuriteService;
-    }
+    ///**
+    //* Constructeur pour l'injection de dépendance du service ProduitSecuriteService.
+    //*
+    //* @param produitSecuriteService Le service ProduitSecuriteService à injecter.
+    //*/
+    //@Autowired
+    //public ProduitSecuriteController(ProduitSecuriteService produitSecuriteService) {
+    //this.produitSecuriteService = produitSecuriteService;
+    //}
 
     /**
      * Méthode POST pour créer un produit de sécurité.
@@ -53,7 +54,7 @@ public class ProduitSecuriteController {
      * @return Le produit de sécurité correspondant à l'identifiant donné.
      */
     @GetMapping("/{id}")
-    public ProduitSecurite getProduitSecuriteById(@PathVariable Long id) {
+    public ProduitSecurite getProduitSecuriteById(@PathVariable Integer id) {
         return produitSecuriteService.getProduitSecuriteById(id);
     }
 

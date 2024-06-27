@@ -16,7 +16,7 @@ public class Technicien {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTechnicien;
+    private Integer idTechnicien;
 
     private String nom;
     private String prenom;

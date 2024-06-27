@@ -12,17 +12,17 @@ import java.util.List;
 @Service
 public class CommandeService {
 
-    private final CommandeRepository commandeRepository;
+    private  CommandeRepository commandeRepository;
 
-    /**
-     * Constructeur du service CommandeService.
-     *
-     * @param commandeRepository Le repository utilisé pour accéder aux données des commandes.
-     */
-    @Autowired
-    public CommandeService(CommandeRepository commandeRepository) {
-        this.commandeRepository = commandeRepository;
-    }
+    ///**
+    //* Constructeur du service CommandeService.
+    //*
+    //* @param commandeRepository Le repository utilisé pour accéder aux données des commandes.
+    //*/
+    //@Autowired
+    //public CommandeService(CommandeRepository commandeRepository) {
+    //this.commandeRepository = commandeRepository;
+    //}
 
     /**
      * Sauvegarde une commande dans la base de données.
@@ -40,7 +40,7 @@ public class CommandeService {
      * @param id L'identifiant de la commande à récupérer.
      * @return La commande correspondant à l'identifiant spécifié, ou null si aucune commande n'est trouvée.
      */
-    public Commande getCommandeById(Long id) {
+    public Commande getCommandeById(Integer id) {
         return commandeRepository.findById(id).orElse(null);
     }
 

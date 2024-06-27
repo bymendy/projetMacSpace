@@ -3,6 +3,7 @@ package com.macsecurite.macsecurite.service;
 import com.macsecurite.macsecurite.model.Users;
 import com.macsecurite.macsecurite.repository.UserRepository;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.SignatureException;
 
+@Data
 /**
  * Le service UserService est responsable de la gestion des utilisateurs et fournit des services métier associés.
  */
@@ -45,6 +47,9 @@ public class UserService implements UserDetailsService {
     }
 
     public Users findBytoken(String token){
+        //if (token == null){
+           // return null;
+       // }
         return userRepository.findByToken(token) ;
     }
 
@@ -85,10 +90,7 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-
-
+    // Clé secrète pour les opérations de sécurité, à remplacer par votre propre clé.
     private static final String SECRET_KEY = "your_secret_key"; // Replace with your actual secret key
-
-
 
 }

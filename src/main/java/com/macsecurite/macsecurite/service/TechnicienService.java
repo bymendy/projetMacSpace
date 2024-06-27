@@ -13,17 +13,17 @@ import java.util.List;
 @Service
 public class TechnicienService {
 
-    private final TechnicienRepository technicienRepository;
+    private  TechnicienRepository technicienRepository;
 
-    /**
-     * Constructeur du service TechnicienService.
-     *
-     * @param technicienRepository Le repository utilisé pour accéder aux données des techniciens dans la base de données.
-     */
-    @Autowired
-    public TechnicienService(TechnicienRepository technicienRepository) {
-        this.technicienRepository = technicienRepository;
-    }
+    ///**
+    //* Constructeur du service TechnicienService.
+    //*
+    //* @param technicienRepository Le repository utilisé pour accéder aux données des techniciens dans la base de données.
+    //*/
+    //@Autowired
+    //public TechnicienService(TechnicienRepository technicienRepository) {
+    //this.technicienRepository = technicienRepository;
+    //}
 
     /**
      * Enregistre un technicien dans la base de données.
@@ -41,7 +41,7 @@ public class TechnicienService {
      * @param id L'identifiant du technicien à récupérer.
      * @return Le technicien correspondant à l'identifiant, ou null s'il n'est pas trouvé.
      */
-    public Technicien getTechnicienById(Long id) {
+    public Technicien getTechnicienById(Integer id) {
         return technicienRepository.findById(id).orElse(null);
     }
 
